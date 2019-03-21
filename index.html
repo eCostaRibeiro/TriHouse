@@ -13,13 +13,36 @@
     <title>Tri.House</title>
 
     <style>
+      :root{
+        --roxo: rgb(163, 85, 160);
+        --roxoA: rgba(165, 87, 162, 0.9);
+        --verde: rgb(9, 186, 178);
+        --verdeA: rgba(11, 188, 180, 0.9);
+        --amarelo: rgb(251, 179, 60);
+        --amareloA: rgba(253, 181, 62, 0.9);
+      }
 
       body{
         background-color: white;
         margin:1em auto;
         font-family: 'Roboto', sans-serif;
+        font-weight: normal;
         width: 80%;
-        border: solid red 1pt;
+        height: 80%;
+      }
+
+      .centrado{
+        margin: auto;
+        width: 70%;
+      }
+      #topLogo{
+        height: 1.5em;
+        margin-top: 0.4em;
+        margin-bottom: 0.1em;
+      }
+      .material-icons{
+        background-color: var(--roxo);
+        color: white;
       }
 
       .navMenu{
@@ -28,12 +51,19 @@
       #hiddenMenu{
         display: none;
         position: absolute;
-        background-color: rgba(255, 255, 255, 0.8);
+        background-color: rgba(255, 255, 255, 0.93);
         width: 80%;
+        height: 80%;
+        font-weight: 300;
+        font-size: 1.5em;
       }
       #hiddenMenu ul{
         text-align: center;
         list-style-type: none;
+        padding: 1em;
+      }
+      #hiddenMenu ul li{
+        padding: 0.5em;
       }
       #hiddenMenu a{
         color: purple;
@@ -42,25 +72,57 @@
         text-align: center;
       }
       #hiddenMenu a:hover{
-        color: pink;
+        color: darkviolet;
       }
 
-      article{
+      #linksHotSites article{
         border-radius: 8px;
         width: 60%;
-        height: 10em;
+        height: 6em;
         margin: auto;
-        padding: 1em.
+        padding: 0.5em;
+        text-align: right;
+        color: white;
+        font-size: 1.5em;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .textoIntro{
+        width: 60%;
+        margin: auto;
+      }
+      #slogan{
+        text-align: justify;
       }
       .cliente{
-        background-color: rgb(9, 186, 178);
+        background-color: var(--verde);
+      }
+      .cliente:hover{
+        background-color: var(--verdeA);
       }
       .arquiteto{
-        background-color: rgb(163, 85, 160);
+        background-color: var(--amarelo);
+      }
+      .arquiteto:hover{
+        background-color: var(--amareloA);
       }
       .fornecedor{
-        background-color: rgb(251, 179, 60);
+        background-color: var(--roxo);
       }
+      .fornecedor:hover{
+        background-color: var(--roxoA);
+      }
+
+      #pVc{
+        font-size: 0.9em;
+        font-weight: 100;
+      }
+      #tag{
+        font-size: 1.2em;
+        font-weight: 800;
+      }
+
+
 
 
 
@@ -70,18 +132,18 @@
 
 
   </head>
-  <body>
+  <body href="javascript:void(0);">
     <nav class="navMenu">
-      <span class="centrado"href="javascript:void(0);">
+      <div class="centrado">
           <i class="material-icons" onclick="toggleMenu()">menu</i>
-          <img src="#" alt="logo_maroto"/>
-      </span>
-      <div id="hiddenMenu">
+          <img id="topLogo" src="logo.svg" alt="logo_maroto"/>
+      </div>
+      <div id="hiddenMenu" onclick="toggleMenu()">
         <ul>
-          <li><a href="#">blog</a></li>
-          <li><a href="#">o que fazemos</a></li>
-          <li><a href="#">projetos</a></li>
-          <li><a href="#">contatos</a></li>
+          <li><a href="http://google.com">blog</a></li>
+          <li><a href="http://uol.com.br">o que fazemos</a></li>
+          <li><a href="http://terra.com.br">projetos</a></li>
+          <li><a href="http://pudim.com.br">contatos</a></li>
         </ul>
       </div>
 
@@ -89,23 +151,24 @@
 
     <section id="textoIntro">
       <article class="textoIntro">
-        <p>
-          A TRI.House é perfeita para você <br /> que deseja <em> economizar dinheiro</em>_
+        <p id="slogan">
+          A TRI.House é perfeita para você que deseja <em> economizar dinheiro</em>_
         </p>
       </article>
     </section>
 
     <section id="linksHotSites">
-      <article class="cliente">
-        para você é cliente
-      </article>
 
-      <article class="arquiteto">
-        para você que é arquiteto
+      <article class="cliente" onclick="linkando('cliente')">
+          <span id="pVc">para você</span><br/><span id="tag">cliente</span>
       </article>
-
-      <article class="fornecedor">
-        para você fornecedor
+      <p></p>
+      <article class="arquiteto" onclick="linkando('arquiteto')">
+        <span id="pVc">para você</span><br/><span id="tag">arquiteto</span>
+      </article>
+      <p></p>
+      <article class="fornecedor" onclick="linkando('fornecedor')">
+        <span id="pVc">para você</span><br/><span id="tag">fornecedor</span>
       </article>
     </section>
 
@@ -119,6 +182,22 @@
         } else {
         x.style.display = "block";
         }
+      }
+      function linkando(local){
+        switch (local){
+          case "fornecedor":
+            window.location = "#";
+            break;
+          case "cliente":
+            window.location = "#";
+            break;
+          case "Arquiteto":
+            window.location = "#";
+            break;
+          default:
+            break;
+        }
+
       }
     </script>
   </body>
